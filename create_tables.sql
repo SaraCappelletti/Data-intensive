@@ -63,7 +63,7 @@ CREATE UNLOGGED TABLE CourseOffers(
 		REFERENCES Courses(CourseId)
 );
 
-CREATE UNLOGGED TABLE TeacherAssignmentsToCourseOffers(
+CREATE UNLOGGED TABLE TeacherAssignmentsToCourses(
 	CourseOfferId int, 
 	TeacherId int,
 	CONSTRAINT fk_courseOffers

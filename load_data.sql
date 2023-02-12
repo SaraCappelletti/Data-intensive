@@ -22,8 +22,8 @@ COPY CourseOffers
 FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\CourseOffers.table' 
 WITH DELIMITER ',' CSV HEADER;
 
-COPY TeacherAssignmentsToCourseOffers 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\TeacherAssignmentsToCourseOffers.table' 
+COPY TeacherAssignmentsToCourses 
+FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\TeacherAssignmentsToCourses.table' 
 WITH DELIMITER ',' CSV HEADER;
 
 COPY Rooms 
