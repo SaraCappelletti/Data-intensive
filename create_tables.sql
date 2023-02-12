@@ -1,5 +1,5 @@
 CREATE UNLOGGED TABLE Degrees(
-	DegreeId int UNIQUE CHECK (DegreeID > 0), 
+	DegreeId int UNIQUE CHECK (DegreeID >= 0), 
 	Dept varchar(50), 
 	DegreeDescription varchar(200), 
 	TotalECTS int CHECK (TotalECTS <= 200),
@@ -7,7 +7,7 @@ CREATE UNLOGGED TABLE Degrees(
 );
 
 CREATE UNLOGGED TABLE Students(
-	StudentId int UNIQUE CHECK (StudentID > 0), 
+	StudentId int UNIQUE CHECK (StudentID >= 0), 
 	StudentName varchar(50), 
 	Address varchar(200), 
 	BirthyearStudent int CHECK (BirthyearStudent <= 3000), 
@@ -16,7 +16,7 @@ CREATE UNLOGGED TABLE Students(
 );
 
 CREATE UNLOGGED TABLE StudentRegistrationsToDegrees(
-	StudentRegistrationId int UNIQUE CHECK (StudentRegistrationID > 0), 
+	StudentRegistrationId int UNIQUE CHECK (StudentRegistrationID >= 0), 
 	StudentId int, 
 	DegreeId int, 
 	RegistrationYear int CHECK (RegistrationYear <= 3000),
@@ -30,7 +30,7 @@ CREATE UNLOGGED TABLE StudentRegistrationsToDegrees(
 );
 
 CREATE UNLOGGED TABLE Teachers(
-	TeacherId int UNIQUE CHECK (TeacherId > 0), 
+	TeacherId int UNIQUE CHECK (TeacherId >= 0), 
 	TeacherName varchar(50), 
 	Address varchar(200), 
 	BirthyearTeacher int CHECK (BirthyearTeacher <= 3000), 
@@ -40,7 +40,7 @@ CREATE UNLOGGED TABLE Teachers(
 );
 
 CREATE UNLOGGED TABLE Courses(
-	CourseId int UNIQUE CHECK (CourseId > 0), 
+	CourseId int UNIQUE CHECK (CourseId >= 0), 
 	CourseName varchar(50), 
 	CourseDescription varchar(200), 
 	DegreeId int, 
@@ -53,7 +53,7 @@ CREATE UNLOGGED TABLE Courses(
 );
 
 CREATE UNLOGGED TABLE CourseOffers(
-	CourseOfferId int UNIQUE CHECK (CourseOfferId > 0), 
+	CourseOfferId int UNIQUE CHECK (CourseOfferId >= 0), 
 	CourseId int, 
 	Year int CHECK (Year <= 3000), 
 	Quartile int CHECK (Quartile between 1 and 4), 
@@ -75,7 +75,7 @@ CREATE UNLOGGED TABLE TeacherAssignmentsToCourseOffers(
 );
 
 CREATE UNLOGGED TABLE Rooms(
-	RoomId int UNIQUE CHECK (RoomId > 0), 
+	RoomId int UNIQUE CHECK (RoomId >= 0), 
 	RoomBuilding varchar (50), 
 	RoomSize int CHECK (RoomSize >= 0),
 	PRIMARY KEY(RoomId)
