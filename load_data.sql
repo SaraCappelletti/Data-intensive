@@ -1,3 +1,3 @@
 COPY Degrees 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase' 
-WITH DELIMITER ',';
+FROM 'C:\Users\20194023\Desktop\Michael\NL\Year 4\Q3\2ID70\UniversityDatabase\Degrees.table' 
+WITH DELIMITER ',' CSV HEADER;
