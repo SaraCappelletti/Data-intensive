@@ -77,7 +77,7 @@ CREATE TABLE TeacherAssignmentsToCourseOffers(
 CREATE TABLE Rooms(
 	RoomId int UNIQUE CHECK (RoomId > 0), 
 	RoomBuilding varchar (50), 
-	RoomSize int UNIQUE CHECK (RoomSize >= 0),
+	RoomSize int CHECK (RoomSize >= 0),
 	PRIMARY KEY(RoomId)
 );
 
