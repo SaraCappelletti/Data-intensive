@@ -11,7 +11,7 @@ CREATE UNLOGGED TABLE Students(
 	StudentName varchar(50), 
 	Address varchar(200), 
 	BirthyearStudent int CHECK (BirthyearStudent <= 3000), 
-	Gender char CHECK (Gender = 'M' or 'F'),
+	Gender char CHECK (Gender in ('M', 'F')),
 	PRIMARY KEY(StudentId)
 );
 
@@ -34,7 +34,7 @@ CREATE UNLOGGED TABLE Teachers(
 	TeacherName varchar(50), 
 	Address varchar(200), 
 	BirthyearTeacher int CHECK (BirthyearTeacher <= 3000), 
-	Gender char CHECK (Gender = 'M' or 'F'), 
+	Gender char CHECK (Gender in ('M', 'F')), 
 	Salary int CHECK (Salary >= 0),
 	PRIMARY KEY(TeacherId)
 );
