@@ -15,7 +15,7 @@ INNER JOIN courses cs
 on co.courseofferid = cs.courseid
 INNER JOIN degrees d
 on cs.degreeid = d.degreeid
-INNER JOIN teacherassignmentstocourseoffers ta
+INNER JOIN teacherassignmentstocourses ta
 on co.courseofferid = ta.courseofferid
 INNER JOIN teachers te
 on te.teacherid = ta.teacherid
