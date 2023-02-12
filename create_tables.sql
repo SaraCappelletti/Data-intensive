@@ -1,4 +1,4 @@
-CREATE TABLE Degrees(
+CREATE UNLOGGED TABLE Degrees(
 	DegreeId int UNIQUE CHECK (DegreeID > 0), 
 	Dept varchar(50), 
 	DegreeDescription varchar(200), 
@@ -6,7 +6,7 @@ CREATE TABLE Degrees(
 	PRIMARY KEY(DegreeId)
 );
 
-CREATE TABLE Students(
+CREATE UNLOGGED TABLE Students(
 	StudentId int UNIQUE CHECK (StudentID > 0), 
 	StudentName varchar(50), 
 	Address varchar(200), 
@@ -15,7 +15,7 @@ CREATE TABLE Students(
 	PRIMARY KEY(StudentId)
 );
 
-CREATE TABLE StudentRegistrationsToDegrees(
+CREATE UNLOGGED TABLE StudentRegistrationsToDegrees(
 	StudentRegistrationId int UNIQUE CHECK (StudentRegistrationID > 0), 
 	StudentId int, 
 	DegreeId int, 
@@ -29,7 +29,7 @@ CREATE TABLE StudentRegistrationsToDegrees(
 		REFERENCES Degrees(DegreeId)
 );
 
-CREATE TABLE Teachers(
+CREATE UNLOGGED TABLE Teachers(
 	TeacherId int UNIQUE CHECK (TeacherId > 0), 
 	TeacherName varchar(50), 
 	Address varchar(200), 
@@ -39,7 +39,7 @@ CREATE TABLE Teachers(
 	PRIMARY KEY(TeacherId)
 );
 
-CREATE TABLE Courses(
+CREATE UNLOGGED TABLE Courses(
 	CourseId int UNIQUE CHECK (CourseId > 0), 
 	CourseName varchar(50), 
 	CourseDescription varchar(200), 
@@ -52,7 +52,7 @@ CREATE TABLE Courses(
 
 );
 
-CREATE TABLE CourseOffers(
+CREATE UNLOGGED TABLE CourseOffers(
 	CourseOfferId int UNIQUE CHECK (CourseOfferId > 0), 
 	CourseId int, 
 	Year int CHECK (Year <= 3000), 
@@ -63,7 +63,7 @@ CREATE TABLE CourseOffers(
 		REFERENCES Courses(CourseId)
 );
 
-CREATE TABLE TeacherAssignmentsToCourseOffers(
+CREATE UNLOGGED TABLE TeacherAssignmentsToCourseOffers(
 	CourseOfferId int, 
 	TeacherId int,
 	CONSTRAINT fk_courseOffers
@@ -74,14 +74,14 @@ CREATE TABLE TeacherAssignmentsToCourseOffers(
 		REFERENCES Teachers(TeacherId)
 );
 
-CREATE TABLE Rooms(
+CREATE UNLOGGED TABLE Rooms(
 	RoomId int UNIQUE CHECK (RoomId > 0), 
 	RoomBuilding varchar (50), 
 	RoomSize int CHECK (RoomSize >= 0),
 	PRIMARY KEY(RoomId)
 );
 
-CREATE TABLE RoomAllocations(
+CREATE UNLOGGED TABLE RoomAllocations(
 	RoomId int, 
 	CourseOfferId int,
 	CONSTRAINT fk_rooms
@@ -92,7 +92,7 @@ CREATE TABLE RoomAllocations(
 		REFERENCES CourseOffers(CourseOfferId)
 );
 
-CREATE TABLE CourseRegistrations(
+CREATE UNLOGGED TABLE CourseRegistrations(
 	CourseOfferId int, 
 	StudentRegistrationId int, 
 	Grade int CHECK (Grade between 1 and 10),
