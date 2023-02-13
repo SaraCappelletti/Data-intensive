@@ -1,39 +1,51 @@
 COPY Degrees 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\Degrees.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\Degrees.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE Degrees;
 
 COPY Students 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\Students.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\Students.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE Students;
+
 
 COPY StudentRegistrationsToDegrees 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\StudentRegistrationsToDegrees.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\StudentRegistrationsToDegrees.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE StudentRegistrationsToDegrees;
 
 COPY Teachers 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\Teachers.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\Teachers.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE Teachers;
 
 COPY Courses 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\Courses.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\Courses.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE Courses;
 
 COPY CourseOffers 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\CourseOffers.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\CourseOffers.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE CourseOffers;
 
 COPY TeacherAssignmentsToCourses 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\TeacherAssignmentsToCourses.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\TeacherAssignmentsToCourses.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE TeacherAssignmentsToCourses;
 
 COPY Rooms 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\Rooms.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\Rooms.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE Rooms;
 
 COPY RoomAllocations
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\RoomAllocations.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\RoomAllocations.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE RoomAllocations;
 
 COPY CourseRegistrations 
-FROM 'C:\Users\sarac\Desktop\Programmazione\Erasmus\Data-intensive systems and applications 2ID70\MS1\UniversityDatabase\CourseRegistrations.table' 
+FROM 'C:\Users\20202687\Desktop\2ID70\MS1Git\Data\CourseRegistrations.table' 
 WITH DELIMITER ',' CSV HEADER;
+ANALYZE CourseRegistrations;
+
