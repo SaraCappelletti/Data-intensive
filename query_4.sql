@@ -14,6 +14,6 @@ AND (
 	SELECT COUNT(courseregistrations.studentregistrationid) AS cnt
 	FROM courseregistrations
 	WHERE courseoffers.courseofferid = courseregistrations.courseofferid --Add %d	
-) > rooms.roomsize  
+) > rooms.roomsize;
 
 ORDER BY courseoffers.courseofferid ASC
