@@ -8,14 +8,17 @@ should be ordered by student id and contain no duplicates. The query will be
 executed 1000 times with different parameter values. The correct answer should 
 adhere to the following schema: [StudentId int].*/
 
-SELECT s.StudentIs /*miss no duplicates and ordered*/
-FROM Degrees d, 
+SELECT DISTINCT s.StudentId
+FROM Degrees d
 JOIN StudentRegistrationsToDegrees srtd 
 ON d.DegreeId = srtd.DegreeID
 JOIN Students s 
 ON s.StudentId = srtd.StudentId 
 JOIN CourseRegistrations cr
 ON cr.StudentRegistrationId = srtd.StudentRegistrationId
-WHERE s.BithyearStudent = ?
-AND d.DegreeId = ?
-AND cr.CourseOfferId = ? /*do I also have to join courses?*/
+JOIN CourseOffers co
+ON co.CourseOfferId = cr.CourseOfferId
+WHERE s.BirthyearStudent = 1965
+AND d.DegreeId = 5
+AND co.CourseId = 5
+ORDER BY s.StudentId
