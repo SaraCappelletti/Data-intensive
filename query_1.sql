@@ -18,7 +18,7 @@ JOIN CourseRegistrations cr
 ON cr.StudentRegistrationId = srtd.StudentRegistrationId
 JOIN CourseOffers co
 ON co.CourseOfferId = cr.CourseOfferId
-WHERE s.BirthyearStudent = 1965
-AND d.DegreeId = 5
-AND co.CourseId = 5
+WHERE s.BirthyearStudent = %(y)s
+AND d.DegreeId = %(d)s
+AND co.CourseId = %(c)s
 ORDER BY s.StudentId

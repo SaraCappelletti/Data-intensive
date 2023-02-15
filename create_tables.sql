@@ -1,105 +1,75 @@
 CREATE UNLOGGED TABLE Degrees(
-	DegreeId int UNIQUE CHECK (DegreeID >= 0), 
+	DegreeId int, 
 	Dept varchar(50), 
 	DegreeDescription varchar(200), 
-	TotalECTS int CHECK (TotalECTS <= 200),
+	TotalECTS int,
 	PRIMARY KEY(DegreeId)
 );
 
 CREATE UNLOGGED TABLE Students(
-	StudentId int UNIQUE CHECK (StudentID >= 0), 
+	StudentId int, 
 	StudentName varchar(50), 
 	Address varchar(200), 
-	BirthyearStudent int CHECK (BirthyearStudent <= 3000), 
-	Gender char CHECK (Gender in ('M', 'F')),
+	BirthyearStudent int, 
+	Gender char,
 	PRIMARY KEY(StudentId)
 );
 
 CREATE UNLOGGED TABLE StudentRegistrationsToDegrees(
-	StudentRegistrationId int UNIQUE CHECK (StudentRegistrationID >= 0), 
+	StudentRegistrationId int, 
 	StudentId int, 
 	DegreeId int, 
-	RegistrationYear int CHECK (RegistrationYear <= 3000),
-	PRIMARY KEY(StudentRegistrationId),
-	CONSTRAINT fk_students
-		FOREIGN KEY(StudentId)
-		REFERENCES Students(StudentId),
-	CONSTRAINT fk_degrees
-		FOREIGN KEY(DegreeId)
-		REFERENCES Degrees(DegreeId)
+	RegistrationYear int,
+	PRIMARY KEY(StudentRegistrationId)
 );
 
 CREATE UNLOGGED TABLE Teachers(
-	TeacherId int UNIQUE CHECK (TeacherId >= 0), 
+	TeacherId int, 
 	TeacherName varchar(50), 
 	Address varchar(200), 
-	BirthyearTeacher int CHECK (BirthyearTeacher <= 3000), 
-	Gender char CHECK (Gender in ('M', 'F')), 
-	Salary int CHECK (Salary >= 0),
+	BirthyearTeacher int, 
+	Gender char, 
+	Salary int,
 	PRIMARY KEY(TeacherId)
 );
 
 CREATE UNLOGGED TABLE Courses(
-	CourseId int UNIQUE CHECK (CourseId >= 0), 
+	CourseId int, 
 	CourseName varchar(50), 
 	CourseDescription varchar(200), 
 	DegreeId int, 
-	ECTS int CHECK (ECTS between 1 and 7),
-	PRIMARY KEY(CourseId),
-	CONSTRAINT fk_degrees
-		FOREIGN KEY(DegreeId)
-		REFERENCES Degrees(DegreeId)
+	ECTS int,
+	PRIMARY KEY(CourseId)
 
 );
 
 CREATE UNLOGGED TABLE CourseOffers(
-	CourseOfferId int UNIQUE CHECK (CourseOfferId >= 0), 
+	CourseOfferId int, 
 	CourseId int, 
-	Year int CHECK (Year <= 3000), 
-	Quartile int CHECK (Quartile between 1 and 4), 
-	PRIMARY KEY(CourseOfferId),
-	CONSTRAINT fk_courses
-		FOREIGN KEY(CourseId)
-		REFERENCES Courses(CourseId)
+	Year int, 
+	Quartile int, 
+	PRIMARY KEY(CourseOfferId)
 );
 
 CREATE UNLOGGED TABLE TeacherAssignmentsToCourses(
 	CourseOfferId int, 
-	TeacherId int,
-	CONSTRAINT fk_courseOffers
-		FOREIGN KEY(CourseOfferId)
-		REFERENCES CourseOffers(CourseOfferId),
-	CONSTRAINT fk_teachers
-		FOREIGN KEY(TeacherId)
-		REFERENCES Teachers(TeacherId)
+	TeacherId int
 );
 
 CREATE UNLOGGED TABLE Rooms(
-	RoomId int UNIQUE CHECK (RoomId >= 0), 
+	RoomId int, 
 	RoomBuilding varchar (50), 
-	RoomSize int CHECK (RoomSize >= 0),
+	RoomSize int,
 	PRIMARY KEY(RoomId)
 );
 
 CREATE UNLOGGED TABLE RoomAllocations(
 	RoomId int, 
-	CourseOfferId int,
-	CONSTRAINT fk_rooms
-		FOREIGN KEY(RoomId)
-		REFERENCES Rooms(RoomId),
-	CONSTRAINT fk_courseOffers
-		FOREIGN KEY(CourseOfferId)
-		REFERENCES CourseOffers(CourseOfferId)
+	CourseOfferId int
 );
 
 CREATE UNLOGGED TABLE CourseRegistrations(
 	CourseOfferId int, 
 	StudentRegistrationId int, 
-	Grade int CHECK (Grade between 1 and 10),
-	CONSTRAINT fk_courseOffers
-		FOREIGN KEY(CourseOfferId)
-		REFERENCES CourseOffers(CourseOfferId),
-	CONSTRAINT fk_studentRegistrationsToDegrees
-		FOREIGN KEY(StudentRegistrationId)
-		REFERENCES StudentRegistrationsToDegrees(StudentRegistrationId)
+	Grade int
 );

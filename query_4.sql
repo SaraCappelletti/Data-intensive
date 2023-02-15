@@ -15,8 +15,8 @@ JOIN (
 ) cr
 ON courseoffers.courseofferid = cr.courseofferid
 
-WHERE courseoffers.year = 2001 --Add %(y)s
-AND courseoffers.quartile = 3 --Add %(q)s
+WHERE courseoffers.year = %(y)s --Add %(y)s
+AND courseoffers.quartile = %(q)s --Add %(q)s
 AND cr.cnt > rooms.roomsize
 
 ORDER BY courseoffers.courseofferid ASC;

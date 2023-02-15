@@ -9,5 +9,5 @@ JOIN (
 	GROUP BY courseofferid)
 cravg ON cr.CourseOfferId = cravg.CourseOfferID
 JOIN StudentRegistrationsToDegrees srtd ON cr.StudentRegistrationId = srtd.StudentRegistrationId
-WHERE srtd.StudentId = 477 AND cr.Grade > cravg.avg_grade + 3.5
+WHERE srtd.StudentId = %(i)s AND cr.Grade > cravg.avg_grade + %(d)s
 ORDER BY cr.CourseOfferID
