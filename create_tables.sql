@@ -2,8 +2,7 @@ CREATE UNLOGGED TABLE Degrees(
 	DegreeId int, 
 	Dept varchar(50), 
 	DegreeDescription varchar(200), 
-	TotalECTS int,
-	PRIMARY KEY(DegreeId)
+	TotalECTS int
 );
 
 CREATE UNLOGGED TABLE Students(
@@ -11,16 +10,14 @@ CREATE UNLOGGED TABLE Students(
 	StudentName varchar(50), 
 	Address varchar(200), 
 	BirthyearStudent int, 
-	Gender char,
-	PRIMARY KEY(StudentId)
+	Gender char
 );
 
 CREATE UNLOGGED TABLE StudentRegistrationsToDegrees(
 	StudentRegistrationId int, 
 	StudentId int, 
 	DegreeId int, 
-	RegistrationYear int,
-	PRIMARY KEY(StudentRegistrationId)
+	RegistrationYear int
 );
 
 CREATE UNLOGGED TABLE Teachers(
@@ -29,8 +26,7 @@ CREATE UNLOGGED TABLE Teachers(
 	Address varchar(200), 
 	BirthyearTeacher int, 
 	Gender char, 
-	Salary int,
-	PRIMARY KEY(TeacherId)
+	Salary int
 );
 
 CREATE UNLOGGED TABLE Courses(
@@ -38,8 +34,7 @@ CREATE UNLOGGED TABLE Courses(
 	CourseName varchar(50), 
 	CourseDescription varchar(200), 
 	DegreeId int, 
-	ECTS int,
-	PRIMARY KEY(CourseId)
+	ECTS int
 
 );
 
@@ -47,8 +42,7 @@ CREATE UNLOGGED TABLE CourseOffers(
 	CourseOfferId int, 
 	CourseId int, 
 	Year int, 
-	Quartile int, 
-	PRIMARY KEY(CourseOfferId)
+	Quartile int
 );
 
 CREATE UNLOGGED TABLE TeacherAssignmentsToCourses(
@@ -59,8 +53,7 @@ CREATE UNLOGGED TABLE TeacherAssignmentsToCourses(
 CREATE UNLOGGED TABLE Rooms(
 	RoomId int, 
 	RoomBuilding varchar (50), 
-	RoomSize int,
-	PRIMARY KEY(RoomId)
+	RoomSize int
 );
 
 CREATE UNLOGGED TABLE RoomAllocations(
