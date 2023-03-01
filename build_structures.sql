@@ -5,3 +5,13 @@ CREATE INDEX idx_ra_courseofferid_roomid ON roomallocations (courseofferid, room
 CREATE INDEX idx_cr_courseofferid_studentregistrationid ON courseregistrations (courseofferid, studentregistrationid);
 CREATE INDEX idx_ta_teacherid_courseofferid ON teacherassignmentstocourses (teacherid, courseofferid);
 CREATE INDEX idx_te_teacherid ON teachers (teacherid)
+
+CREATE OR REPLACE VIEW CourseRegistrationWithAvgGrade AS
+SELECT DISTINCT cr.CourseOfferId 
+FROM CourseRegistrations cr
+JOIN (
+	SELECT courseofferid, AVG(grade) AS avg_grade
+	FROM CourseRegistrations cr
+	GROUP BY courseofferid
+) cravg ON cr.CourseOfferId = cravg.CourseOfferID
+JOIN StudentRegistrationsToDegrees srtd ON cr.StudentRegistrationId = srtd.StudentRegistrationId;
