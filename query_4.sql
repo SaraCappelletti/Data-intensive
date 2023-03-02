@@ -16,6 +16,6 @@ ORDER BY courseoffers.courseofferid ASC; --Takes around a minute and 10 seconds.
 
 SELECT DISTINCT courseofferid, year
 FROM my_view
-WHERE year = 2001
-AND quartile = 3
+WHERE year = %(y)s --Add %(y)s
+AND quartile = %(q)s --Add %(q)s
 ORDER BY courseofferid ASC; --Near Instant execution time
