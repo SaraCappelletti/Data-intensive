@@ -21,5 +21,5 @@ GROUP BY
   )
 ORDER BY 
   Teachers.BirthyearTeacher, 
-  (CASE WHEN Teachers.Gender='Female' THEN 1 ELSE 2 END), 
+  Teachers.Gender, 
   Teachers.Salary
