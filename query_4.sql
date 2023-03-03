@@ -3,7 +3,6 @@ SELECT DISTINCT courseoffers.courseofferid, courseoffers.year, courseoffers.quar
 FROM courseoffers
 INNER JOIN roomallocations ON courseoffers.courseofferid = roomallocations.courseofferid
 INNER JOIN rooms ON roomallocations.roomid = rooms.roomid
-INNER JOIN courseregistrations ON courseoffers.courseofferid = courseregistrations.courseofferid
 JOIN (
     SELECT courseofferid, COUNT(studentregistrationid) AS cnt
     FROM courseregistrations
@@ -13,9 +12,15 @@ AND cr.cnt > rooms.roomsize
 ORDER BY courseoffers.courseofferid ASC; --Takes around a minute and 10 seconds.
 
 
-
 SELECT DISTINCT courseofferid, year
 FROM my_view
 WHERE year = %(y)s --Add %(y)s
 AND quartile = %(q)s --Add %(q)s
-ORDER BY courseofferid ASC; --Near Instant execution time
+ORDER BY courseofferid ASC; -- Takes around 0.05 seconds
+
+--Ways to improve performance
+--1. Project only the columns you need
+--2. Filter early
+--3. Make another materialized view
+--4. Use indexes
+--5. Remove distinct
